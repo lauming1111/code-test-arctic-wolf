@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Lambda Exercise Challenge 
 *Note: This exercise is designed to be ran in an AWS Free Tier account and should incur no cost. If for any reason this is an issue please contact your recruiter for alternative accomodations.*
 ![DaveCyclops](./DaveCyclops.png)
@@ -88,6 +87,3 @@ We will run the deployment instructions in a container, so if there are addition
 There is a lot of freedom in how you complete this exercise.  Make assumptions as necessary and be prepared to justify those assumptions.  If you have any clarifying questions you can email matthew.cobb@arcticwolf.com or todd.snyder@arcticwolf.com.
 
 *Note: this is a throwaway question to help us understand your knowledge of AWS, programming, etc.  We will not use any of your code for anything other than assessing your skills and discussion during a followup technical interview*
-=======
-# code-test-arctic-wolf
->>>>>>> ef3caafe11087e68d3f51a7ea2223f995485ce6f
