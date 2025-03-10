@@ -1,49 +1,63 @@
 import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3();
+import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { checkDateFormat } from './functions/check-date-format';
+import { uploadToS3 } from './functions/upload-to-s3';
+import { checkS3Env } from './functions/check-s3-env';
+
+const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-1' });
 
 export const handler = async (event: any, context: Context) => {
-    const bucketName = process.env.S3_BUCKET_NAME; // Replace with your S3 bucket name
-    const fileKey = process.env.S3_SOURCE_FILE_NAME; // Replace with your JSON file key
+  const { sourceBucketName, fileKey, targetBucketName } = await checkS3Env();
+  const startDate = await checkDateFormat(process.env.LAMBDA_CUSTOM_START_DATE);
 
-    try {
-        const params = {
-            Bucket: bucketName,
-            Key: fileKey,
-        };
+  try {
+    // Fetch the JSON file from S3
+    const data = await s3Client.send(new GetObjectCommand({
+      Bucket: sourceBucketName,
+      Key: fileKey,
+    }));
+    const jsonData = JSON.parse(await data.Body!.transformToString('utf-8'));
 
-        // Fetch the JSON file from S3
-        const data = await s3.getObject(params).promise();
-        const jsonData = JSON.parse(data.Body.toString("utf-8"));
+    const customStartDate = new Date(startDate);
+    const thresholdDate = new Date(customStartDate);
+    thresholdDate.setDate(customStartDate.getDate() + 120);
 
-        const startDate = '2023-02-01T00:00:00.000Z';
+    // Filter images where DeprecationTime is within 120 days of startDate
+    const filteredImages = jsonData.Images.filter((image: any) => {
+      const deprecationTime = new Date(image.DeprecationTime);
+      return deprecationTime <= thresholdDate && deprecationTime >= customStartDate;
+    });
+    const filteredWindowsImages = filteredImages.filter((item: any) => item.Platform === 'windows')
+      .map((item: any) => item.Name);
 
-        const start = new Date(startDate);
-        const thresholdDate = new Date(start);
-        thresholdDate.setDate(start.getDate() + 120);
+    // console.log(jsonData.Images.length, filteredImages.length);
+    // console.log(filteredImages);
 
-        // Filter images where DeprecationTime is within 120 days of startDate
-        const filteredImages = jsonData.Images.filter((image: any) => {
-            const deprecationTime = new Date(image.DeprecationTime);
-            console.log(start, thresholdDate, deprecationTime,);
+    const sortedImages = jsonData.Images.filter((item: any) => item.Name.includes('bottlerocket-aws-k8s'))
+      .sort((a: any, b: any) => {
+        const dateA = new Date(a.CreationDate);
+        const dateB = new Date(b.CreationDate);
+        // Descending order
+        return dateB.getTime() - dateA.getTime();
+      })
+      .map((r: any) => ({
+        Name: r.Name,
+        CreationDate: r.CreationDate,
+      }));
 
-            return deprecationTime <= thresholdDate && deprecationTime >= start;
-        });
+    await uploadToS3(s3Client, targetBucketName, 'answer_1.json', JSON.stringify({ Answer: filteredImages.length }));
+    await uploadToS3(s3Client, targetBucketName, 'answer_2.json', JSON.stringify({ Answer: filteredWindowsImages }));
+    await uploadToS3(s3Client, targetBucketName, 'answer_3.json', JSON.stringify({ Answer: sortedImages }));
 
-        console.log(jsonData.Images.length, filteredImages.length);
-        console.log(filteredImages.filter((item: any) => item.Platform === 'windows').map((item: any) => item.Name));
-
-
-        // return jsonContent;
-        return {
-            statusCode: 200,
-            message: 'success'
-        };
-    } catch (e) {
-        console.log(e);
-        return {
-            statusCode: 500,
-            message: (e as Error).stack
-        };
-    }
+    return {
+      statusCode: 200,
+      message: 'success',
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      statusCode: 500,
+      message: (e as Error).stack,
+    };
+  }
 };

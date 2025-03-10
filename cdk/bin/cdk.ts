@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { CdkStack } from '../lib/cdk-stack';
-import { InitS3 } from '../lib/init-s3';
+import { S3Stack } from '../lib/s3-stack';
+import { LambdaStack } from '../lib/lambda-stack';
 import 'dotenv/config';
 
 const app = new cdk.App();
 
+const deployFiles = new S3Stack(app, 's3-stack', {
+  stackName: 's3-stack',
+});
 
-
-
-const deployFiles = new InitS3(app, 'InitS3', {});
-
-
-const deployLambda = new CdkStack(app, 'CdkStack', {}).addDependency(deployFiles);
-
+const deployLambda = new LambdaStack(app, 'lambda-stack', {
+  stackName: 'lambda-stack',
+}).addDependency(deployFiles);

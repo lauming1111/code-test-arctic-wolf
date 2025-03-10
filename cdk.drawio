@@ -1,0 +1,175 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="24.8.4">
+  <diagram name="Page-1" id="S9dw_1uFPNNPAlQ1tnYp">
+    <mxGraphModel dx="1625" dy="897" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-19" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="30" y="390" width="790" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="120" y="800" width="630" height="491" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-32" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="981" width="190" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-30" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="995" width="190" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-1" target="ZyGN23FuKiYCEg_8TYao-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="109.5" y="60" width="630" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-3" value="CDK Source Code" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="60" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="130" width="120" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="414" y="130" width="286" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-9" value="&lt;span style=&quot;background-color: initial;&quot;&gt;Lambda&lt;/span&gt;&amp;nbsp;Source Code" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="534" y="190" width="136" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-10" value="Lambda Stack" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="414" y="130" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-12" value="S3 Stack" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="130" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-13" value="Config:&lt;div&gt;Name&lt;br&gt;Region&lt;br&gt;Role&lt;/div&gt;&lt;div&gt;...&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="155" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-16" value="Config:&lt;div&gt;Name&lt;br&gt;Region&lt;br&gt;Role&lt;/div&gt;&lt;div&gt;...&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="414" y="160" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-5" target="ZyGN23FuKiYCEg_8TYao-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-5" value="&lt;div&gt;2. Generate&lt;/div&gt;S3 CloudFormation Template" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="470" width="126" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-4" target="ZyGN23FuKiYCEg_8TYao-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-4" value="2. Generate&amp;nbsp;&lt;div&gt;Lambda Function CloudFormation Template&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="470" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-23" target="ZyGN23FuKiYCEg_8TYao-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-23" value="4. Deploy CloudFormation with CDK" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="456.5" y="630" width="201" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-24" value="AWS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="820" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-25" target="ZyGN23FuKiYCEg_8TYao-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-25" target="ZyGN23FuKiYCEg_8TYao-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-26" target="ZyGN23FuKiYCEg_8TYao-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-26" value="Source S3&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Bucket&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="1021" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-28" target="ZyGN23FuKiYCEg_8TYao-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="584" y="1101" />
+              <mxPoint x="210" y="1101" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-28" value="Lambda Function" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="524" y="1021" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-29" value="Target S3&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Bucket&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="1121" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-31" value="Stack 1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="991" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-33" value="Stack 2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="981" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-34" value="Lambda Function Role" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="524" y="1121" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-36" value="Execute &quot;cdk deploy&quot;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="427.13" y="360" width="130.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-37" target="ZyGN23FuKiYCEg_8TYao-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-37" target="ZyGN23FuKiYCEg_8TYao-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-37" value="1. Execute All Test cases" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="446.5" y="400" width="201" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-38" target="ZyGN23FuKiYCEg_8TYao-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-38" value="3. Check difference between local and remote" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="427.13" y="580" width="259.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-49" target="ZyGN23FuKiYCEg_8TYao-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="800" />
+              <mxPoint x="170" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-49" value="6. Uplaod the&amp;nbsp;describe-images.json to source bucket" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="67" y="530" width="206" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-52" value="Get describe-images.json" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="1021" width="155.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-53" value="&lt;div&gt;Upload Result JSON to Target S3&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320.25" y="1101" width="189.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-54" value="&lt;div&gt;CloudWatch LogGroup&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="524" y="1201" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-59" target="ZyGN23FuKiYCEg_8TYao-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-59" value="&lt;div&gt;5. Check any custom actions after successful deployment&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40.24999999999999" y="460" width="259.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-25" target="ZyGN23FuKiYCEg_8TYao-59">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="440" />
+              <mxPoint x="170" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-25" value="&lt;div&gt;CloudFormation&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="384.5" y="911" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-80" value="Process" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZyGN23FuKiYCEg_8TYao-81" target="ZyGN23FuKiYCEg_8TYao-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-81" value="CDK Bootstrap Bucket" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="397.5" y="830" width="94" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZyGN23FuKiYCEg_8TYao-84" value="5. Upload all templates/source code to bootstrap bucket" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="557.63" y="700" width="176" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
