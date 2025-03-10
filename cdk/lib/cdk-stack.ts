@@ -3,8 +3,6 @@ import { aws_lambda } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import path = require('path');
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { InitS3 } from './init-s3';
-import { Default_Config } from '../types/interfaces';
 
 export class CdkStack extends cdk.Stack {
   public readonly lambdaFunction: aws_lambda.Function; // Make it public for testing
