@@ -31,6 +31,7 @@ export const handler = async (event: any, context: Context) => {
         });
 
         console.log(jsonData.Images.length, filteredImages.length);
+        console.log(filteredImages.filter((item: any) => item.Platform === 'windows').map((item: any) => item.Name));
 
 
         // return jsonContent;
