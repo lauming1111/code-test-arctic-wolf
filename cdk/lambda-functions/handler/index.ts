@@ -1,5 +1,6 @@
 import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
 import { checkDateFormat } from './functions/check-date-format';
+import { uploadToS3 } from './functions/upload-to-s3';
 import { checkS3Env } from './functions/check-s3-env';
 const AWS = require("aws-sdk");
 const s3 = new AWS.S3();
@@ -44,6 +45,11 @@ export const handler = async (event: any, context: Context) => {
                 Name: r.Name,
                 CreationDate: r.CreationDate
             }));
+
+        await uploadToS3(s3, bucketName, 'answer_1.json', JSON.stringify({ Answer: filteredImages.length }));
+        await uploadToS3(s3, bucketName, 'answer_2.json', JSON.stringify({ Answer: filteredWindowsImages }));
+        await uploadToS3(s3, bucketName, 'answer_3.json', JSON.stringify({ Answer: sortedImages }));
+
         return {
             statusCode: 200,
             message: 'success'
