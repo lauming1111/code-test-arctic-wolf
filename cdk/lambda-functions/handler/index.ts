@@ -16,18 +16,14 @@ export const handler = async (event: any, context: Context) => {
         }).promise();
         const jsonData = JSON.parse(data.Body.toString("utf-8"));
 
-        const startDate = '2023-02-01T00:00:00.000Z';
-
-        const start = new Date(startDate);
-        const thresholdDate = new Date(start);
-        thresholdDate.setDate(start.getDate() + 120);
+        const customStartDate = new Date(startDate);
+        const thresholdDate = new Date(customStartDate);
+        thresholdDate.setDate(customStartDate.getDate() + 120);
 
         // Filter images where DeprecationTime is within 120 days of startDate
         const filteredImages = jsonData.Images.filter((image: any) => {
             const deprecationTime = new Date(image.DeprecationTime);
-            console.log(start, thresholdDate, deprecationTime,);
-
-            return deprecationTime <= thresholdDate && deprecationTime >= start;
+            return deprecationTime <= thresholdDate && deprecationTime >= customStartDate;
         });
         const filteredWindowsImages = filteredImages.filter((item: any) => item.Platform === 'windows')
             .map((item: any) => item.Name);
