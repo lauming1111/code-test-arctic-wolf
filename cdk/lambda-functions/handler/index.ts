@@ -1,20 +1,19 @@
 import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
 import { checkDateFormat } from './functions/check-date-format';
+import { checkS3Env } from './functions/check-s3-env';
 const AWS = require("aws-sdk");
 const s3 = new AWS.S3();
 
 export const handler = async (event: any, context: Context) => {
-    const bucketName = process.env.S3_BUCKET_NAME; // Replace with your S3 bucket name
+    const { bucketName, fileKey } = await checkS3Env();
     const startDate = await checkDateFormat(process.env.LAMBDA_CUSTOM_START_DATE);
 
     try {
-        const params = {
+        // Fetch the JSON file from S3
+        const data = await s3.getObject({
             Bucket: bucketName,
             Key: fileKey,
-        };
-
-        // Fetch the JSON file from S3
-        const data = await s3.getObject(params).promise();
+        }).promise();
         const jsonData = JSON.parse(data.Body.toString("utf-8"));
 
         const startDate = '2023-02-01T00:00:00.000Z';
