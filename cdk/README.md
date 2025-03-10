@@ -1,14 +1,167 @@
-# Welcome to your CDK TypeScript project
+# AWS CDK Project README
 
-This is a blank project for CDK development with TypeScript.
+This project uses AWS CDK to deploy an S3 bucket infrastructure and a Lambda function that processes JSON data from S3, leveraging AWS SDK v3 and a custom IAM role with least privilege.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Prerequisites
 
-## Useful commands
+- Node.js: Version 22.x
+- AWS CLI: Version 2.x
+- AWS CDK: Version 2.x
+- AWS Account: With permissions to create CloudFormation stacks, S3 buckets, Lambda functions, and IAM roles.
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+## Setup
+### Working Directory: `./cdk`
+1. **Install Dependencies:**
+
+    ```sh
+    npm install
+    ```
+
+2. **Configure AWS CLI:**
+
+    - Set up your AWS credentials and region:
+
+        ```sh
+        aws configure
+        ```
+
+    - Example configuration:
+        - AWS Access Key ID: `<your-access-key>`
+        - AWS Secret Access Key: `<your-secret-key>`
+        - Default region name: `us-east-1`
+        - Default output format: `json`
+
+3. **Bootstrap CDK Environment:**
+
+    - Initialize the CDK in your AWS account/region:
+
+        ```sh
+        cdk bootstrap
+        ```
+
+    - Ensure your account and region match your `.env` settings (e.g., `CDK_DEFAULT_ACCOUNT`, `CDK_DEFAULT_REGION`).
+
+4. **Prepare Environment Variables:**
+
+    - Create or update a `.env` file in the project root with:
+
+        ```plaintext
+        S3_SOURCE_BUCKET_NAME=<your-source-bucket-name>
+        S3_TARGET_BUCKET_NAME=<your-target-bucket-name>
+        S3_SOURCE_FILE_NAME=describe-images.json
+        LAMBDA_CUSTOM_START_DATE=2023-02-01T00:00:00.000Z
+        ```
+
+    - Replace placeholders with your values (e.g., unique bucket names).
+
+## Architecture
+Draw.io: [cdk.drawio](../cdk.drawio)
+![cdk.drawio.png](../cdk.drawio.png)
+
+## Deploy
+
+1. **Generate [describe-images.json](../describe-images.json) from [describe-instances.json](../describe-instances.json):**
+
+    - Run the AWS CLI command to fetch EC2 image data and save it locally:
+
+        ```sh
+        aws ec2 describe-images --owners amazon > describe-images.json
+        ```
+
+    - This file will be uploaded to the source S3 bucket during deployment.
+
+2. **Review Changes:**
+
+    - Check the CloudFormation diff:
+
+        ```sh
+        cdk diff
+        ```
+
+3. **Deploy Stacks:**
+
+    - Deploy both `s3-stack` and `lambda-stack`:
+
+        ```sh
+        cdk deploy --all
+        ```
+
+    - Or deploy without confirmation:
+
+        ```sh
+        cdk deploy --all --require-approval never
+        ```
+
+## Verify
+
+1. **CloudFormation Stacks:**
+
+    - Confirm two stacks are created: `s3-stack` and `lambda-stack`.
+    - Check via AWS Console (CloudFormation) or CLI:
+
+        ```sh
+        aws cloudformation list-stacks 
+        ```
+
+2. **S3 Buckets:**
+
+    - Verify the source bucket (`S3_SOURCE_BUCKET_NAME`) and target bucket (`S3_TARGET_BUCKET_NAME`) exist:
+
+        ```sh
+        aws s3 ls
+        ```
+
+3. **Lambda Function:**
+
+    - Confirm the `json-handler` function exists:
+
+        ```sh
+        aws lambda get-function --function-name json-handler
+        ```
+
+4. **IAM Role:**
+
+    - Verify the custom role (`custom-lambda-role`) has least-privilege permissions:
+
+        ```sh
+        aws iam get-role --role-name custom-lambda-role
+        ```
+
+5. **CloudWatch Log Group:**
+
+    - Verify the CloudWatch Log Group for the Lambda function exists:
+
+        ```sh
+        aws logs describe-log-groups --log-group-name-prefix /aws/lambda/json-handler
+        ```
+
+## Test Cases
+
+The project includes unit tests for CDK stacks and the Lambda function.
+#### The expected answers based on current version of [describe-images.json](../describe-images.json)
+
+1. **Run Tests:**
+
+    ```sh
+    npm test
+    ```
+
+    - CDK Tests: Validate `S3Stack` (bucket creation, deployment) and `LambdaStack` (function properties, IAM role).
+    - Lambda Tests: Test local execution (if applicable; requires additional setup).
+
+2. **Test Requirements:**
+
+    - Ensure [describe-images.json](../describe-images.json) exists in the project root for CDK tests.
+    - Dependencies: `jest`, `ts-jest`, `@aws-cdk/assertions`.
+
+## Run Lambda Function (CLI)
+
+Invoke the Lambda function manually:
+
+```sh
+aws lambda invoke \
+  --function-name json-handler \
+  --payload '{}' \
+  --output json \
+  response.json
+```
