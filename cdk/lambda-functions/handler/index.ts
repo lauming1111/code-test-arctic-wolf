@@ -7,13 +7,13 @@ import { checkS3Env } from './functions/check-s3-env';
 const s3Client = new S3Client({ region: process.env.AWS_REGION || 'us-east-1' });
 
 export const handler = async (event: any, context: Context) => {
-  const { bucketName, fileKey } = await checkS3Env();
+  const { sourceBucketName, fileKey, targetBucketName } = await checkS3Env();
   const startDate = await checkDateFormat(process.env.LAMBDA_CUSTOM_START_DATE);
 
   try {
     // Fetch the JSON file from S3
     const data = await s3Client.send(new GetObjectCommand({
-      Bucket: bucketName,
+      Bucket: sourceBucketName,
       Key: fileKey,
     }));
     const jsonData = JSON.parse(await data.Body!.transformToString('utf-8'));
@@ -45,9 +45,9 @@ export const handler = async (event: any, context: Context) => {
         CreationDate: r.CreationDate,
       }));
 
-    await uploadToS3(s3Client, bucketName, 'answer_1.json', JSON.stringify({ Answer: filteredImages.length }));
-    await uploadToS3(s3Client, bucketName, 'answer_2.json', JSON.stringify({ Answer: filteredWindowsImages }));
-    await uploadToS3(s3Client, bucketName, 'answer_3.json', JSON.stringify({ Answer: sortedImages }));
+    await uploadToS3(s3Client, targetBucketName, 'answer_1.json', JSON.stringify({ Answer: filteredImages.length }));
+    await uploadToS3(s3Client, targetBucketName, 'answer_2.json', JSON.stringify({ Answer: filteredWindowsImages }));
+    await uploadToS3(s3Client, targetBucketName, 'answer_3.json', JSON.stringify({ Answer: sortedImages }));
 
     return {
       statusCode: 200,

@@ -23,42 +23,42 @@ describe('Lambda Function Local Test', () => {
 
   it('should get answer 1 JSON from S3', async () => {
     const params = {
-      Bucket: process.env.S3_BUCKET_NAME,
+      Bucket: process.env.S3_TARGET_BUCKET_NAME,
       Key: 'answer_1.json',
     };
 
     const command = new GetObjectCommand(params);
     const data = await s3Client.send(command);
     const jsonData = JSON.parse(await data.Body!.transformToString('utf-8'));
-    console.log(jsonData);
+    // console.log(jsonData);
 
     expect(jsonData).toEqual(expectedAnswer1);
   }, 3 * 60 * 1000);
 
   it('should get answer 2 JSON from S3', async () => {
     const params = {
-      Bucket: process.env.S3_BUCKET_NAME,
+      Bucket: process.env.S3_TARGET_BUCKET_NAME,
       Key: 'answer_2.json',
     };
 
     const command = new GetObjectCommand(params);
     const data = await s3Client.send(command);
     const jsonData = JSON.parse(await data.Body!.transformToString('utf-8'));
-    console.log(jsonData);
+    // console.log(jsonData);
 
     expect(jsonData).toEqual(expectedAnswer2);
   }, 3 * 60 * 1000);
 
   it('should get answer 3 JSON from S3', async () => {
     const params = {
-      Bucket: process.env.S3_BUCKET_NAME,
+      Bucket: process.env.S3_TARGET_BUCKET_NAME,
       Key: 'answer_3.json',
     };
 
     const command = new GetObjectCommand(params);
     const data = await s3Client.send(command);
     const jsonData = JSON.parse(await data.Body!.transformToString('utf-8'));
-    console.log(jsonData);
+    // console.log(jsonData);
 
     expect(jsonData).toEqual(expectedAnswer3);
   }, 3 * 60 * 1000);
