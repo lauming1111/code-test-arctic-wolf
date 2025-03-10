@@ -11,3 +11,7 @@ const app = new cdk.App();
 
 
 const deployFiles = new InitS3(app, 'InitS3', {});
+
+
+const deployLambda = new CdkStack(app, 'CdkStack', {}).addDependency(deployFiles);
+
