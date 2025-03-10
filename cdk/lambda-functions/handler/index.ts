@@ -29,12 +29,25 @@ export const handler = async (event: any, context: Context) => {
 
             return deprecationTime <= thresholdDate && deprecationTime >= start;
         });
+        const filteredWindowsImages = filteredImages.filter((item: any) => item.Platform === 'windows')
+            .map((item: any) => item.Name);
 
-        console.log(jsonData.Images.length, filteredImages.length);
-        console.log(filteredImages.filter((item: any) => item.Platform === 'windows').map((item: any) => item.Name));
+        // console.log(jsonData.Images.length, filteredImages.length);
+        // console.log(filteredImages);
 
-
-        // return jsonContent;
+        const sortedImages = jsonData.Images.filter((item: any) => {
+            return item.Name.includes('bottlerocket-aws-k8s');
+        })
+            .sort((a: any, b: any) => {
+                const dateA = new Date(a.CreationDate);
+                const dateB = new Date(b.CreationDate);
+                // Descending order
+                return dateB.getTime() - dateA.getTime();
+            })
+            .map((r: any) => ({
+                Name: r.Name,
+                CreationDate: r.CreationDate
+            }));
         return {
             statusCode: 200,
             message: 'success'
