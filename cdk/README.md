@@ -2,6 +2,12 @@
 
 This project uses AWS CDK to deploy an S3 bucket infrastructure and a Lambda function that processes JSON data from S3, leveraging AWS SDK v3 and a custom IAM role with least privilege.
 
+## AWS CDK
+
+- **Native IaC**: AWS CDK is a native Infrastructure as Code (IaC) tool that supports and introduces new features faster.
+- **AWS CloudFormation**: AWS CloudFormation is free, offers better console management (no state file management), and provides better rollback capabilities.
+- **Exist Knowledge**: AWS CDK is easy to learn and does not require learning a new programming language.
+
 ## Prerequisites
 
 - Node.js: Version 22.x
