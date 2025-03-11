@@ -152,7 +152,29 @@ The project includes unit tests for CDK stacks and the Lambda function.
 2. **Test Requirements:**
 
     - Ensure [describe-images.json](../describe-images.json) exists in the project root for CDK tests.
-    - Dependencies: `jest`, `ts-jest`, `@aws-cdk/assertions`.
+
+### CDK Stack Tests
+
+1. **S3Stack Tests:**
+
+    - Validate the creation of the S3 buckets.
+    - Ensure the correct bucket policies are applied.
+    - Verify the deployment of the S3 buckets.
+
+2. **LambdaStack Tests:**
+
+    - Validate the properties of the Lambda function (e.g., runtime, handler, environment variables).
+    - Ensure the Lambda function has the correct IAM role with least-privilege permissions.
+    - Verify the deployment of the Lambda function.
+
+### Lambda Function Tests
+
+1. **Local Execution Tests:**
+
+    - Test the Lambda function's ability to process JSON data from S3.
+    - Validate the function's output for various input scenarios.
+    - Ensure error handling works correctly (e.g., invalid JSON, missing data).
+
 
 ## Run Lambda Function (CLI)
 
