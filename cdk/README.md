@@ -60,9 +60,17 @@ Draw.io: [cdk.drawio](../cdk.drawio)
 
 ## Deploy
 
+#### Automated Shell Script 
+Prepare JSON + Deploy CDK + Execute Lambda Function
+1. Execute Shell script in the root folder
+```sh
+./deploy.sh
+```
+
+#### Execute Commands Manually
 1. **Generate [describe-images.json](../describe-images.json) from [describe-instances.json](../describe-instances.json):**
 
-    - Run the AWS CLI command to fetch EC2 image data and save it locally:
+    - Run the AWS CLI command in root folder to fetch EC2 image data and save it locally:
 
         ```sh
         aws ec2 describe-images --owners amazon > describe-images.json
@@ -72,9 +80,10 @@ Draw.io: [cdk.drawio](../cdk.drawio)
 
 2. **Review Changes:**
 
-    - Check the CloudFormation diff:
+    - Check the CloudFormation diff (inside cdk folder):
 
         ```sh
+        cd cdk
         cdk diff
         ```
 
@@ -140,7 +149,7 @@ Draw.io: [cdk.drawio](../cdk.drawio)
 The project includes unit tests for CDK stacks and the Lambda function.
 #### The expected answers based on current version of [describe-images.json](../describe-images.json)
 
-1. **Run Tests:**
+1. **Run Tests (inside cdk folder):**
 
     ```sh
     npm test
@@ -152,7 +161,29 @@ The project includes unit tests for CDK stacks and the Lambda function.
 2. **Test Requirements:**
 
     - Ensure [describe-images.json](../describe-images.json) exists in the project root for CDK tests.
-    - Dependencies: `jest`, `ts-jest`, `@aws-cdk/assertions`.
+
+### CDK Stack Tests
+
+1. **S3Stack Tests:**
+
+    - Validate the creation of the S3 buckets.
+    - Ensure the correct bucket policies are applied.
+    - Verify the deployment of the S3 buckets.
+
+2. **LambdaStack Tests:**
+
+    - Validate the properties of the Lambda function (e.g., runtime, handler, environment variables).
+    - Ensure the Lambda function has the correct IAM role with least-privilege permissions.
+    - Verify the deployment of the Lambda function.
+
+### Lambda Function Tests
+
+1. **Local Execution Tests:**
+
+    - Test the Lambda function's ability to process JSON data from S3.
+    - Validate the function's output for various input scenarios.
+    - Ensure error handling works correctly (e.g., invalid JSON, missing data).
+
 
 ## Run Lambda Function (CLI)
 
